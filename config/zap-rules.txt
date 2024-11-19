@@ -1,0 +1,112 @@
+# Regras DevSecOps com foco no OWASP Top 10 (2021) e CWE Top 25
+
+# OWASP Top 10 - 2021 - Focar nas vulnerabilidades mais críticas
+
+# A01:2021 - Broken Access Control
+includeCategory=Access Control
+includeRule=20014  # Falha no controle de acesso
+excludeRule=20015  # Ignorar false positives
+
+# A02:2021 - Cryptographic Failures
+includeCategory=Sensitive Data Exposure
+includeRule=10010  # Exposição inadequada de dados sensíveis
+excludeRule=10011  # Ignorar detalhes de versões de bibliotecas
+
+# A03:2021 - Injection
+includeCategory=Injection
+includeRule=90000  # Injeção de SQL
+includeRule=90001  # Injeção de comandos
+excludeRule=90002  # Falsos positivos para injeção de SQL
+
+# A04:2021 - Insecure Design
+includeCategory=Security Misconfiguration
+includeRule=10009  # Configuração inadequada de segurança
+excludeRule=10008  # Ignorar falhas de configuração em componentes conhecidos
+
+# A05:2021 - Security Misconfiguration
+includeCategory=Security Misconfiguration
+includeRule=10009  # Configuração inadequada de segurança
+excludeRule=10008  # Ignorar falhas de configuração em componentes conhecidos
+
+# A06:2021 - Vulnerable and Outdated Components
+includeCategory=Information Disclosure
+includeRule=10011  # Falha de segurança em componentes desatualizados
+
+# A07:2021 - Identification and Authentication Failures
+includeCategory=Authentication
+includeRule=10013  # Falhas de autenticação
+excludeRule=10012  # Ignorar falhas de autenticação em processos irrelevantes
+
+# A08:2021 - Software and Data Integrity Failures
+includeCategory=Data Integrity
+includeRule=10008  # Falhas de integridade de dados
+
+# A09:2021 - Security Logging and Monitoring Failures
+includeCategory=Logging
+includeRule=10014  # Falhas de registro e monitoramento
+
+# A10:2021 - Server-Side Request Forgery (SSRF)
+includeCategory=Server Side Request Forgery
+includeRule=20022  # Falha de SSRF (Server-Side Request Forgery)
+
+# CWE Top 25 - Focar nas vulnerabilidades mais comuns
+
+# CWE-89 - SQL Injection
+includeCategory=Injection
+includeRule=90000  # Injeção de SQL
+
+# CWE-119 - Buffer Overflow
+includeCategory=Buffer Overflow
+includeRule=10016  # Falha de buffer overflow
+
+# CWE-78 - OS Command Injection
+includeCategory=Injection
+includeRule=90001  # Injeção de comando no sistema operacional
+
+# CWE-20 - Improper Input Validation
+includeCategory=Input Validation
+includeRule=10007  # Validação inadequada de entrada
+
+# CWE-200 - Information Exposure
+includeCategory=Information Disclosure
+includeRule=10010  # Exposição inadequada de informações sensíveis
+
+# CWE-287 - Improper Authentication
+includeCategory=Authentication
+includeRule=10013  # Falhas de autenticação
+
+# CWE-416 - Use After Free
+includeCategory=Memory Corruption
+includeRule=10021  # Uso de memória após a liberação
+
+# CWE-352 - Cross-Site Request Forgery (CSRF)
+includeCategory=Cross-Site Request Forgery
+includeRule=40010  # Falhas CSRF
+
+# CWE-362 - Concurrent Execution using Shared Resource with Improper Synchronization
+includeCategory=Race Condition
+includeRule=10020  # Condições de corrida
+
+# CWE-611 - Improper Restriction of XML External Entity Reference (XXE)
+includeCategory=XML External Entity
+includeRule=40030  # Vulnerabilidade XXE
+
+# Configuração de Severidade das Regras
+
+# Priorizar alertas críticos de alta severidade
+alertSeverity=Critical
+
+# Ignorar vulnerabilidades de baixo risco (como informações desnecessárias)
+excludeCategory=Low Risk
+excludeCategory=Information Disclosure
+
+# Ignorar vulnerabilidades já conhecidas e de baixo impacto
+excludeRule=10011  # Informações de versão de componentes
+excludeRule=10008  # Detalhes de configuração em componentes conhecidos
+
+# Configuração de URLs para ignorar (exemplo)
+excludeURLs=http://example.com/*   # URLs irrelevantes ou externas a serem ignoradas
+
+# Configuração de exclusões específicas (ajustar conforme a aplicação)
+excludeRule=10018  # Vulnerabilidades já mitigadas
+

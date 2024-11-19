@@ -1,0 +1,27 @@
+# Configurações gerais do ZAP
+general:
+  # Defina aqui outras configurações, como proxies ou tempos limite, se necessário
+  # Caso contrário, mantenha-o simples sem definir a URL de destino aqui.
+  scan:
+    - maxDuration: 300  # Duração máxima do escaneamento em segundos
+    - maxAlerts: 100    # Número máximo de alertas a serem exibidos
+
+# Configurações específicas do scan
+scanSettings:
+  # Qualquer configuração adicional do ZAP
+  - type: "spider"
+    level: "Low"
+  - type: "activeScan"
+    level: "High"
+
+# Outros parâmetros de configuração do ZAP (como opções de proxy ou autenticação)
+proxy:
+  enabled: true
+  host: "localhost"
+  port: 8080
+
+# Defina a política de relatórios
+report:
+  format: "HTML"  # Formato de relatório
+  outputDirectory: "reports"  # Diretório onde os relatórios serão salvos
+  fileName: "zap_report.html"  # Nome do arquivo do relatório

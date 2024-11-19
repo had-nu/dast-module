@@ -1,0 +1,41 @@
+dast-module/
+│
+├── .github/
+│   └── workflows/
+│       └── dast.yml                     # Arquivo de workflow do GitHub Actions para rodar o DAST
+│
+├── Dockerfile                           # Arquivo Docker para rodar o OWASP ZAP
+│
+├── config/
+│   ├── zap-config.yaml                  # Arquivo de configuração do OWASP ZAP (opcional, se necessário)
+│   └── zap-rules.txt                    # Arquivo de regras ou configurações personalizadas do ZAP (opcional)
+│
+├── reports/                             # Diretório para armazenar os relatórios gerados (opcional)
+│   └── zap_report.html                  # Relatório gerado pelo ZAP
+│
+├── scripts/
+│   └── run-zap-scan.sh                  # Script para executar o ZAP de forma personalizada (opcional)
+│
+└── README.md                            # Documentação do módulo DAST (opcional, mas recomendado)
+----------------------------------
+Descrição dos Arquivos e Pastas:
+
+    Dockerfile:
+        Contém as instruções para construir a imagem Docker necessária para executar o OWASP ZAP. 
+        Você pode optar por usar a imagem oficial do ZAP ou personalizar conforme sua necessidade.
+
+    .github/workflows/dast.yml:
+        Arquivo de configuração do GitHub Actions que define como o ZAP será executado no pipeline CI/CD. Esse arquivo orquestra o processo de escaneamento e o upload de relatórios.
+
+    config/:
+        zap-config.yaml: Arquivo de configuração opcional do ZAP, onde você pode ajustar as opções do scanner.
+        zap-rules.txt: Se você precisar de regras personalizadas para o ZAP, pode incluí-las aqui.
+
+    reports/:
+        Um diretório onde você pode salvar os relatórios gerados pelo ZAP. Aqui ficará o zap_report.html ou outros relatórios, como o zap_report.json (se você quiser relatórios em outros formatos).
+
+    scripts/:
+        run-zap-scan.sh: Um script bash ou shell para executar varreduras personalizadas usando o ZAP. Esse script pode ser chamado dentro do seu pipeline ou manualmente para testes específicos.
+
+    README.md:
+        Documentação sobre o módulo DAST, explicando como configurar, usar e integrar a ferramenta de varredura OWASP ZAP no seu projeto.
